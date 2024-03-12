@@ -2,6 +2,8 @@ package mvc.tictactoe;
 
 import com.mrjaffesclass.apcs.messenger.*;
 
+import javax.swing.JButton;
+
 /**
  * The model represents the data that the app uses.
  *
@@ -75,8 +77,10 @@ public class Model implements MessageHandler {
                 } else {
                     this.board[row][col] = "O";
                 }
+                whoseMove = !whoseMove;
                 // Send the boardChange message along with the new board 
                 this.mvcMessaging.notify("boardChange", this.board);
+                this.mvcMessaging.notify("gameOver", this);
             }
 
             // newGame message handler
@@ -89,4 +93,16 @@ public class Model implements MessageHandler {
 
     }
 
+//    public JButton isWinner() {
+//        JButton[][] status = new JButton[3][3];
+//        status[0][0] = jButton1();
+//        status[0][1] = jButton2.getText();
+//        status[0][2] = jButton3.getText();
+//        status[1][0] = jButton4.getText();
+//        status[1][1] = jButton5.getText();
+//        status[1][2] = jButton6.getText();
+//        status[2][0] = jButton7.getText();
+//        status[2][1] = jButton8.getText();
+//        status[2][2] = jButton9.getText();
+//    }
 }
