@@ -37,6 +37,8 @@ public class View extends javax.swing.JFrame implements MessageHandler {
 
     }
 
+    private boolean gameOver = false;
+
     @Override
     public void messageHandler(String messageName, Object messagePayload) {
         if (messagePayload != null) {
@@ -59,9 +61,10 @@ public class View extends javax.swing.JFrame implements MessageHandler {
             jButton8.setText(board[2][1]);
             jButton9.setText(board[2][2]);
         }
-       if (messageName.equals("gameOver")) {
-           
-       }
+        if (messageName.equals("gameOver")) {
+             gameOver = true;
+             jLabel12.setText("The game is tied!");
+        }
 
     }
 
@@ -252,8 +255,11 @@ public class View extends javax.swing.JFrame implements MessageHandler {
 
     private void onClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onClick
         // TODO add your handling code here:
-        JButton button = (JButton) evt.getSource();
-        this.mvcMessaging.notify("playerMove", button.getName());
+        if (gameOver == false) {
+            JButton button = (JButton) evt.getSource();
+            this.mvcMessaging.notify("playerMove", button.getName());
+        }
+
     }//GEN-LAST:event_onClick
 
     /**

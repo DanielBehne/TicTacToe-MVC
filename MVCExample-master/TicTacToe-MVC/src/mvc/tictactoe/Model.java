@@ -19,6 +19,7 @@ public class Model implements MessageHandler {
     private boolean whoseMove;
     private boolean gameOver;
     private String[][] board;
+    private int count = 0;
 
     /**
      * Model constructor: Create the data representation of the program
@@ -64,7 +65,7 @@ public class Model implements MessageHandler {
         }
 
         // playerMove message handler
-        if (messageName.equals("playerMove")) {
+        if (messageName.equals("playerMove") && !gameDone()) {
             // Get the position string and convert to row and col
             String position = (String) messagePayload;
             Integer row = new Integer(position.substring(0, 1));
@@ -77,14 +78,19 @@ public class Model implements MessageHandler {
                 } else {
                     this.board[row][col] = "O";
                 }
+                count++;
                 whoseMove = !whoseMove;
                 // Send the boardChange message along with the new board 
                 this.mvcMessaging.notify("boardChange", this.board);
-                this.mvcMessaging.notify("gameOver", this);
+
             }
 
-            // newGame message handler
-        } else if (messageName.equals("newGame")) {
+            if (gameDone()) {
+                this.mvcMessaging.notify("gameOver", this.board);
+            }
+
+        } // newGame message handler
+        else if (messageName.equals("newGame")) {
             // Reset the app state
             this.newGame();
             // Send the boardChange message along with the new board 
@@ -93,16 +99,10 @@ public class Model implements MessageHandler {
 
     }
 
-//    public JButton isWinner() {
-//        JButton[][] status = new JButton[3][3];
-//        status[0][0] = jButton1();
-//        status[0][1] = jButton2.getText();
-//        status[0][2] = jButton3.getText();
-//        status[1][0] = jButton4.getText();
-//        status[1][1] = jButton5.getText();
-//        status[1][2] = jButton6.getText();
-//        status[2][0] = jButton7.getText();
-//        status[2][1] = jButton8.getText();
-//        status[2][2] = jButton9.getText();
-//    }
+    public boolean gameDone() {
+        if (count == 9) {
+            return gameOver = true;
+        }
+        return gameOver;
+    }
 }
