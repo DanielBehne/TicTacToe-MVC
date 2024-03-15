@@ -291,8 +291,9 @@ public class View extends javax.swing.JFrame implements MessageHandler {
     private void clickNewGame(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickNewGame
         // TODO add your handling code here:
         JButton button = (JButton) evt.getSource();
-        jLabel12.setText("TicTacToe");
         this.mvcMessaging.notify(("newGame"), button.getName());
+        jLabel12.setText("TicTacToe");
+
     }//GEN-LAST:event_clickNewGame
 
     /**
