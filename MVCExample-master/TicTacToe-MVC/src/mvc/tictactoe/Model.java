@@ -51,8 +51,16 @@ public class Model implements MessageHandler {
                 this.board[row][col] = "";
             }
         }
+        count = 0;
         this.whoseMove = false;
         this.gameOver = false;
+    }
+
+    public boolean gameDone() {
+        if (count == 9) {
+            return gameOver = true;
+        }
+        return gameOver;
     }
 
     @Override
@@ -82,15 +90,15 @@ public class Model implements MessageHandler {
                 whoseMove = !whoseMove;
                 // Send the boardChange message along with the new board 
                 this.mvcMessaging.notify("boardChange", this.board);
-
             }
+        }
 
-            if (gameDone()) {
-                this.mvcMessaging.notify("gameOver", this.board);
-            }
-
-        } // newGame message handler
-        else if (messageName.equals("newGame")) {
+        if (gameDone()) {
+            this.mvcMessaging.notify("gameOver", this.board);
+        }
+        
+// newGame message handler
+        if (messageName.equals("newGame")) {
             // Reset the app state
             this.newGame();
             // Send the boardChange message along with the new board 
@@ -99,10 +107,4 @@ public class Model implements MessageHandler {
 
     }
 
-    public boolean gameDone() {
-        if (count == 9) {
-            return gameOver = true;
-        }
-        return gameOver;
-    }
 }

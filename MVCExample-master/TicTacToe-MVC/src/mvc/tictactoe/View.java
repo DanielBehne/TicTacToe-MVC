@@ -37,8 +37,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
 
     }
 
-    private boolean gameOver = false;
-
+    //private boolean gameOver = false;
     @Override
     public void messageHandler(String messageName, Object messagePayload) {
         if (messagePayload != null) {
@@ -62,8 +61,8 @@ public class View extends javax.swing.JFrame implements MessageHandler {
             jButton9.setText(board[2][2]);
         }
         if (messageName.equals("gameOver")) {
-             gameOver = true;
-             jLabel12.setText("The game is tied!");
+            //gameOver = true;
+            jLabel12.setText("The game is tied!");
         }
 
     }
@@ -87,6 +86,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
+        newGameButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -95,6 +95,8 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         jButton1.setBackground(new java.awt.Color(0, 153, 0));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 0));
+        jButton1.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 102, 0)));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
         jButton1.setName("00"); // NOI18N
         jButton1.setPreferredSize(new java.awt.Dimension(75, 75));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -106,6 +108,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         jButton2.setBackground(new java.awt.Color(0, 153, 0));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 0));
+        jButton2.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 102, 0)));
         jButton2.setName("01"); // NOI18N
         jButton2.setPreferredSize(new java.awt.Dimension(75, 75));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -117,6 +120,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         jButton3.setBackground(new java.awt.Color(0, 153, 0));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 0));
+        jButton3.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 102, 0)));
         jButton3.setName("02"); // NOI18N
         jButton3.setPreferredSize(new java.awt.Dimension(75, 75));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -128,6 +132,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         jButton4.setBackground(new java.awt.Color(0, 153, 0));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 0));
+        jButton4.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 102, 0)));
         jButton4.setName("10"); // NOI18N
         jButton4.setPreferredSize(new java.awt.Dimension(75, 75));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -139,6 +144,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         jButton5.setBackground(new java.awt.Color(0, 153, 0));
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 0));
+        jButton5.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 102, 0)));
         jButton5.setName("11"); // NOI18N
         jButton5.setPreferredSize(new java.awt.Dimension(75, 75));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -150,6 +156,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         jButton6.setBackground(new java.awt.Color(0, 153, 0));
         jButton6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton6.setForeground(new java.awt.Color(255, 255, 0));
+        jButton6.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 102, 0)));
         jButton6.setName("12"); // NOI18N
         jButton6.setPreferredSize(new java.awt.Dimension(75, 75));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -161,6 +168,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         jButton7.setBackground(new java.awt.Color(0, 153, 0));
         jButton7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton7.setForeground(new java.awt.Color(255, 255, 0));
+        jButton7.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 102, 0)));
         jButton7.setName("20"); // NOI18N
         jButton7.setPreferredSize(new java.awt.Dimension(75, 75));
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -172,6 +180,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         jButton8.setBackground(new java.awt.Color(0, 153, 0));
         jButton8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton8.setForeground(new java.awt.Color(255, 255, 0));
+        jButton8.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 102, 0)));
         jButton8.setName("21"); // NOI18N
         jButton8.setPreferredSize(new java.awt.Dimension(75, 75));
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -183,6 +192,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         jButton9.setBackground(new java.awt.Color(0, 153, 0));
         jButton9.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton9.setForeground(new java.awt.Color(255, 255, 0));
+        jButton9.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 102, 0)));
         jButton9.setName("22"); // NOI18N
         jButton9.setPreferredSize(new java.awt.Dimension(75, 75));
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -191,7 +201,18 @@ public class View extends javax.swing.JFrame implements MessageHandler {
             }
         });
 
-        jLabel12.setText("jLabel12");
+        jLabel12.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+
+        newGameButton.setBackground(new java.awt.Color(255, 255, 0));
+        newGameButton.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        newGameButton.setForeground(new java.awt.Color(0, 153, 0));
+        newGameButton.setText(" New Game ");
+        newGameButton.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
+        newGameButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clickNewGame(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -199,8 +220,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(65, 65, 65)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -209,17 +229,21 @@ public class View extends javax.swing.JFrame implements MessageHandler {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(newGameButton)))
                 .addContainerGap(78, Short.MAX_VALUE))
         );
 
@@ -228,8 +252,10 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(13, Short.MAX_VALUE)
-                .addComponent(jLabel12)
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(newGameButton)
+                    .addComponent(jLabel12))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -245,7 +271,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48))
+                .addGap(33, 33, 33))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton1, jButton2, jButton3, jButton4, jButton5, jButton6, jButton7, jButton8, jButton9});
@@ -255,12 +281,19 @@ public class View extends javax.swing.JFrame implements MessageHandler {
 
     private void onClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onClick
         // TODO add your handling code here:
-        if (gameOver == false) {
-            JButton button = (JButton) evt.getSource();
-            this.mvcMessaging.notify("playerMove", button.getName());
-        }
+        //if (gameOver == false) {
+        JButton button = (JButton) evt.getSource();
+        this.mvcMessaging.notify("playerMove", button.getName());
+        //}
 
     }//GEN-LAST:event_onClick
+
+    private void clickNewGame(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickNewGame
+        // TODO add your handling code here:
+        JButton button = (JButton) evt.getSource();
+        jLabel12.setText("TicTacToe");
+        this.mvcMessaging.notify(("newGame"), button.getName());
+    }//GEN-LAST:event_clickNewGame
 
     /**
      * @param args the command line arguments
@@ -277,5 +310,6 @@ public class View extends javax.swing.JFrame implements MessageHandler {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JButton newGameButton;
     // End of variables declaration//GEN-END:variables
 }
