@@ -32,7 +32,10 @@ public class View extends javax.swing.JFrame implements MessageHandler {
     public void init() {
         // Subscribe to messages here
         this.mvcMessaging.subscribe("boardChange", this);
-        this.mvcMessaging.subscribe("gameOver", this);
+        this.mvcMessaging.subscribe("gameTied", this);
+        this.mvcMessaging.subscribe("xWins", this);
+        this.mvcMessaging.subscribe("oWins", this);
+
         jLabel12.setText("TicTacToe");
 
     }
@@ -60,9 +63,15 @@ public class View extends javax.swing.JFrame implements MessageHandler {
             jButton8.setText(board[2][1]);
             jButton9.setText(board[2][2]);
         }
-        if (messageName.equals("gameOver")) {
+        if (messageName.equals("gameTied")) {
             //gameOver = true;
             jLabel12.setText("The game is tied!");
+        }
+        if (messageName.equals("xWins")) {
+            jLabel12.setText("X WINS THE GAME!");
+        }
+        if (messageName.equals("oWins")) {
+            jLabel12.setText("O WINS THE GAME!");
         }
 
     }

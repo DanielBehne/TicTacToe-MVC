@@ -56,7 +56,30 @@ public class Model implements MessageHandler {
         this.gameOver = false;
     }
 
-    public boolean gameDone() {
+    private String isWinner() {
+        // Check the rows and columns for a tic tac toe
+        for (int i = 0; i < 3; i++) {
+            if (board[i][0].equals(board[i][1]) && board[i][0].equals(board[i][2]) && !board[i][0].equals("")) {
+                return board[i][0];
+            }
+            if (board[0][i].equals(board[1][i]) && board[0][i].equals(board[2][i]) && !board[0][i].equals("")) {
+                return board[0][i];
+            }
+        }
+
+        // Check the diagonals
+        if (board[0][0].equals(board[1][1]) && board[0][0].equals(board[2][2])) {
+            return board[0][0];
+        }
+        if (board[0][2].equals(board[1][1]) && board[0][2].equals(board[2][0])) {
+            return board[0][2];
+        }
+
+        // If we haven't found it, then return a blank string
+        return "";
+    }
+    
+    public boolean gameTied() {
         if (count == 9) {
             return gameOver = true;
         }
@@ -73,7 +96,7 @@ public class Model implements MessageHandler {
         }
 
         // playerMove message handler
-        if (messageName.equals("playerMove") && !gameDone()) {
+        if (messageName.equals("playerMove") && !gameTied()) {
             // Get the position string and convert to row and col
             String position = (String) messagePayload;
             Integer row = new Integer(position.substring(0, 1));
@@ -92,11 +115,19 @@ public class Model implements MessageHandler {
                 this.mvcMessaging.notify("boardChange", this.board);
             }
         }
-
-        if (gameDone()) {
-            this.mvcMessaging.notify("gameOver", this.board);
+        
+        if (this.isWinner().equals("X")) {
+            this.mvcMessaging.notify("xWins", this.board);
         }
         
+        if (this.isWinner().equals("O")) {
+            this.mvcMessaging.notify("oWins", this.board);
+        }
+        
+        if (gameTied()) {
+            this.mvcMessaging.notify("gameTied", this.board);
+        }
+
 // newGame message handler
         if (messageName.equals("newGame")) {
             // Reset the app state
