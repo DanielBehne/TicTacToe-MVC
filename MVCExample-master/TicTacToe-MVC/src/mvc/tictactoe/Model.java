@@ -97,7 +97,7 @@ public class Model implements MessageHandler {
         }
 
         // playerMove message handler
-        if (messageName.equals("playerMove") && !gameOver) {
+        if (messageName.equals("playerMove") && this.gameOver==false && gameTied()==false) {
             // Get the position string and convert to row and col
             String position = (String) messagePayload;
             Integer row = new Integer(position.substring(0, 1));
@@ -136,9 +136,7 @@ public class Model implements MessageHandler {
             this.mvcMessaging.notify("oWins", this.board);
             this.gameOver = true;
 
-        }
-
-        if (gameTied()) {
+        } else if (gameTied()) {
             this.mvcMessaging.notify("gameTied", this.board);
         }
 

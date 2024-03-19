@@ -38,7 +38,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         this.mvcMessaging.subscribe("xMove",this);
         this.mvcMessaging.subscribe("oMove",this);
 
-        jLabel12.setText("TicTacToe");
+        jLabel12.setText("It is O's move.");
 
     }
 
