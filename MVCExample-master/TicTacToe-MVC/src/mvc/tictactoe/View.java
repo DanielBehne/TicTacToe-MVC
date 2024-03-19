@@ -35,6 +35,8 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         this.mvcMessaging.subscribe("gameTied", this);
         this.mvcMessaging.subscribe("xWins", this);
         this.mvcMessaging.subscribe("oWins", this);
+        this.mvcMessaging.subscribe("xMove",this);
+        this.mvcMessaging.subscribe("oMove",this);
 
         jLabel12.setText("TicTacToe");
 
@@ -72,6 +74,10 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         }
         if (messageName.equals("oWins")) {
             jLabel12.setText("O WINS THE GAME!");
+        } else if (messageName.equals("xMove")) {
+            jLabel12.setText("It is X's move.");
+        } else if (messageName.equals("oMove")) {
+            jLabel12.setText("It is O's move.");
         }
 
     }
@@ -301,7 +307,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         // TODO add your handling code here:
         JButton button = (JButton) evt.getSource();
         this.mvcMessaging.notify(("newGame"), button.getName());
-        jLabel12.setText("TicTacToe");
+        jLabel12.setText("It is O's move.");
 
     }//GEN-LAST:event_clickNewGame
 

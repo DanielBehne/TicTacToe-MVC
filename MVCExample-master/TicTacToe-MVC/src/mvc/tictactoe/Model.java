@@ -78,12 +78,13 @@ public class Model implements MessageHandler {
         // If we haven't found it, then return a blank string
         return "";
     }
-    
+
     public boolean gameTied() {
         if (count == 9) {
-            return gameOver = true;
+            return this.gameOver = true;
+
         }
-        return gameOver;
+        return this.gameOver = false;
     }
 
     @Override
@@ -96,7 +97,7 @@ public class Model implements MessageHandler {
         }
 
         // playerMove message handler
-        if (messageName.equals("playerMove") && !gameTied()) {
+        if (messageName.equals("playerMove") && !gameOver) {
             // Get the position string and convert to row and col
             String position = (String) messagePayload;
             Integer row = new Integer(position.substring(0, 1));
@@ -111,19 +112,32 @@ public class Model implements MessageHandler {
                 }
                 count++;
                 whoseMove = !whoseMove;
+
+                if (whoseMove) {
+                    this.mvcMessaging.notify("xMove", this);
+                }
+                if (!whoseMove) {
+                    this.mvcMessaging.notify("oMove", this);
+                }
+
                 // Send the boardChange message along with the new board 
                 this.mvcMessaging.notify("boardChange", this.board);
             }
         }
-        
+
         if (this.isWinner().equals("X")) {
+
             this.mvcMessaging.notify("xWins", this.board);
+            this.gameOver = true;
+
         }
-        
+
         if (this.isWinner().equals("O")) {
             this.mvcMessaging.notify("oWins", this.board);
+            this.gameOver = true;
+
         }
-        
+
         if (gameTied()) {
             this.mvcMessaging.notify("gameTied", this.board);
         }
