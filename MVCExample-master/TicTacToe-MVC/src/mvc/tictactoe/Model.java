@@ -125,15 +125,15 @@ public class Model implements MessageHandler {
             }
         }
 
-        if (this.isWinner().equals("X")) {
-
-            this.mvcMessaging.notify("xWins", this.board);
-            this.gameOver = true;
-
-        }
+        
 
         if (this.isWinner().equals("O")) {
             this.mvcMessaging.notify("oWins", this.board);
+            this.gameOver = true;
+
+        } else if (this.isWinner().equals("X")) {
+
+            this.mvcMessaging.notify("xWins", this.board);
             this.gameOver = true;
 
         } else if (gameTied()) {
